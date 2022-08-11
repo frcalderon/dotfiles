@@ -20,7 +20,9 @@ echo -e "✅ Packages installed."
 
 # Install shell configuration
 echo -e "🕵️‍♂️ Seting up shell..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+sudo apt-get install zsh
+chsh -s $(which zsh)
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" --unattended
 sudo snap install starship
 
 ln -sf "$REPOSITORY_PATH/.oh-my-zsh" ~/.oh-my-zsh
