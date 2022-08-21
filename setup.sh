@@ -15,7 +15,7 @@ echo -e "✅ Cloned into ${REPOSITORY_PATH}."
 # Install packages
 echo -e "🕵️‍♂️ Installing packages..."
 xargs sudo apt-get install < "$REPOSITORY_PATH/apt.pkglist"
-xargs -0 -n 1 sudo snap install < <(tr \\n \\0 <"$REPOSITORY_PATH/snap.pkglist")
+while IFS= read -r line; do sudo snap install $line; done < $REPOSITORY_PATH/snap.pkglist
 echo -e "✅ Packages installed."
 
 # Install shell configuration
