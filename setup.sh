@@ -5,7 +5,7 @@ REPOSITORY='https://github.com/frcalderon/dotfiles.git'
 REPOSITORY_PATH="$HOME/.dotfiles"
 
 # Install Git
-sudo apt-get install git
+sudo apt-get install -y git
 
 # Clone repository
 echo -e "💾 Cloning repository..."
@@ -14,7 +14,7 @@ echo -e "✅ Cloned into ${REPOSITORY_PATH}."
 
 # Install packages
 echo -e "🕵️‍♂️ Installing packages..."
-xargs sudo apt-get install < "$REPOSITORY_PATH/apt.pkglist"
+xargs sudo apt-get install -y < "$REPOSITORY_PATH/apt.pkglist"
 while IFS= read -r line; do sudo snap install $line; done < $REPOSITORY_PATH/snap.pkglist
 echo -e "✅ Packages installed."
 
