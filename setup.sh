@@ -20,8 +20,7 @@ echo -e "✅ Packages installed."
 
 # Install shell configuration
 echo -e "🕵️‍♂️ Seting up shell..."
-sudo apt-get install zsh
-chsh -s $(which zsh)
+sudo apt-get install zsh -y
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" --unattended
 sudo snap install starship
 
@@ -31,3 +30,6 @@ echo -e "✅ Shell set up."
 
 # Install fonts
 sudo cp "$REPOSITORY_PATH/Fonts/*" /usr/share/fonts/
+
+# Change shell
+chsh -s $(which zsh)
